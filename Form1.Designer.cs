@@ -100,14 +100,14 @@ namespace Method_pro
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 29);
             this.label1.TabIndex = 3;
-            this.label1.Text = "y``+          y`+              y  =              \r\n";
+            this.label1.Text = "y``+           y`+             y =              \r\n";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(154, 156);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(41, 29);
+            this.textBox1.Size = new System.Drawing.Size(51, 29);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
@@ -121,9 +121,9 @@ namespace Method_pro
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(364, 156);
+            this.textBox3.Location = new System.Drawing.Point(334, 156);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 29);
+            this.textBox3.Size = new System.Drawing.Size(120, 29);
             this.textBox3.TabIndex = 4;
             // 
             // button2
@@ -316,7 +316,6 @@ namespace Method_pro
         #endregion
 
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
@@ -340,6 +339,7 @@ namespace Method_pro
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        protected internal System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

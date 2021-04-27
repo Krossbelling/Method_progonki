@@ -37,10 +37,91 @@ namespace Method_pro
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "Метод прогонки")
+            try
             {
-                
+
+                ParserFunction.addFunction("sin", new SinFunction());
+                ParserFunction.addFunction("cos", new CosFunction());
+                ParserFunction.addFunction("pi", new PiFunction());
+                ParserFunction.addFunction("exp", new ExpFunction());
+                ParserFunction.addFunction("pow", new PowFunction());
+                ParserFunction.addFunction("abs", new AbsFunction());
+                ParserFunction.addFunction("sqrt", new SqrtFunction());
+                ParserFunction.addFunction("x", new XFunction());
+
+
+                double a = double.Parse(textBox5.Text);
+                double b = double.Parse(textBox10.Text);
+                double A = double.Parse(textBox8.Text);
+                double B = double.Parse(textBox13.Text);
+                double alfa0 = double.Parse(textBox4.Text);
+                double alfa1 = double.Parse(textBox6.Text);
+                double beta0 = double.Parse(textBox9.Text);
+                double beta1 = double.Parse(textBox11.Text);
+
+                double h = 0.05;
+                int N = (int)Math.Round((b - a) / h);
+                string uravnP = textBox1.Text;
+                string uravnQ = textBox2.Text;
+                string uravnF = textBox3.Text;
+
+
+
+                if (comboBox1.Text == "Метод прогонки")
+                {
+                    double[] m = new double[N + 1];
+                    double[] x = new double[N + 1];
+                    double[] n = new double[N + 1];
+                    double[] C = new double[N + 1];
+                    double[] d = new double[N + 1];
+                    double[] y = new double[N + 1];
+                    x[0] = a;
+
+                    for (int i = 1; i <= N; i++)
+                        x[i] = x[0] + i * h;
+
+                    for (var i = 0; i <= N; i++)
+                        m[i] = -2 + h * Parser.process(x[i],uravnP);                    
+
+                    for (var i = 0; i <= N; i++)
+                        n[i] = 1 - h * Parser.process(x[i], uravnP) + Parser.process(x[i], uravnQ) * Math.Pow(h, 2);
+
+                    C[0] = (alfa1 - alfa0 * h) / (m[0] * (alfa1 - alfa0 * h) + n[0] * alfa1);
+
+                    for (var i = 1; i < N - 1; i++)
+                        C[i] = 1 / (m[i] - n[i] * C[i - 1]);                   
+
+                    d[0] = (n[0] * A * h) / (alfa1 - alfa0 * h) + Parser.process(x[0], uravnF)  * h;
+
+                    for (var i = 1; i < N - 1; i++)
+                        d[i] = Parser.process(x[i], uravnF) * Math.Pow(h, 2) - n[i] * C[i - 1] * d[i - 1];
+
+                    
+
+                    y[N] = (beta1 * C[N - 2] * d[N - 2] + B * h) / (beta1 * (1 + C[N - 2]) + beta0 * h);
+
+                    for (var i = N - 1; i > 0; i--)
+                        y[i] = C[i - 1] * (d[i - 1] - y[i + 1]);
+
+                    y[0] = (alfa1 * y[1] - A * h) / (alfa1 - alfa0 * h);
+
+                    dataGridView1.Rows.Clear();
+                    for (int i = 0; i < N + 1; i++)
+                    {
+                        dataGridView1.Rows.Add(i, x[i], y[i]);
+                    }
+
+                }
             }
-        }
+            catch (Exception exept)
+            {
+                MessageBox.Show("Решить не удалось" + ".\n " + exept.Message + "\n " + "Проверьте ввод данных:" + "\n " + "дифференциальное уравнение, a, b, x0, y0, N, eps.");
+            }
+
+        }               
+     
+        
+
+        
     }
 }
