@@ -39,6 +39,29 @@ namespace Method_pro
         {
             try
             {
+                List<TextBox> textBoxes = new List<TextBox> 
+                {
+                    textBox1, 
+                    textBox2, 
+                    textBox3, 
+                    textBox4, 
+                    textBox5, 
+                    textBox6,
+                    textBox7,
+                    textBox8,
+                    textBox9,
+                    textBox10,
+                    textBox11,
+                    textBox12,
+                    textBox13
+                };
+                foreach (var s in textBoxes)
+                {
+                    if (s.Text == "")
+                    {
+                        s.Text = "0";
+                    }
+                }
 
                 ParserFunction.addFunction("sin", new SinFunction());
                 ParserFunction.addFunction("cos", new CosFunction());
@@ -47,11 +70,11 @@ namespace Method_pro
                 ParserFunction.addFunction("pow", new PowFunction());
                 ParserFunction.addFunction("abs", new AbsFunction());
                 ParserFunction.addFunction("sqrt", new SqrtFunction());
-                ParserFunction.addFunction("x", new XFunction());
+                ParserFunction.addFunction("x", new XFunction());                
+                
+                double a = textBox5.Text == "0" ? double.Parse(textBox7.Text) : double.Parse(textBox5.Text);
+                double b = textBox10.Text == "0" ? double.Parse(textBox12.Text) : double.Parse(textBox10.Text);
 
-
-                double a = double.Parse(textBox5.Text);
-                double b = double.Parse(textBox10.Text);
                 double A = double.Parse(textBox8.Text);
                 double B = double.Parse(textBox13.Text);
                 double alfa0 = double.Parse(textBox4.Text);
@@ -87,12 +110,10 @@ namespace Method_pro
                         n[i] = 1 - h * Parser.process(x[i], uravnP) + Parser.process(x[i], uravnQ) * Math.Pow(h, 2);
 
                     C[0] = (alfa1 - alfa0 * h) / (m[0] * (alfa1 - alfa0 * h) + n[0] * alfa1);
-
                     for (int i = 1; i < N - 1; i++)
                         C[i] = 1 / (m[i] - n[i] * C[i - 1]);                   
 
                     d[0] = (n[0] * A * h) / (alfa1 - alfa0 * h) + Parser.process(x[0], uravnF)  * h;
-
                     for (int i = 1; i < N - 1; i++)
                         d[i] = Parser.process(x[i], uravnF) * Math.Pow(h, 2) - n[i] * C[i - 1] * d[i - 1];                    
 
@@ -152,7 +173,7 @@ namespace Method_pro
                 MessageBox.Show("Решить не удалось" + ".\n " + exept.Message + "\n " + "Проверьте ввод данных:" + "\n " + "дифференциальное уравнение, a, b, x0, y0, N, eps.");
             }
         }
-        
 
+        
     }
 }
