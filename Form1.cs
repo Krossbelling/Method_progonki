@@ -12,14 +12,16 @@ namespace Method_pro
 {
     public partial class Form1 : Form
     {
+        Button but;
         public Form1()
         {
             InitializeComponent();
             comboBox1.Text = "Метод прогонки";
-        }
-
+        }                
         private void button1_Click(object sender, EventArgs e)
         {
+            ColorButton(sender);
+            
             textBox1.Text = "x";
             textBox2.Text = "1";
             textBox3.Text = "x+1";
@@ -33,6 +35,36 @@ namespace Method_pro
             textBox11.Text = "0";
             textBox12.Text = "0";
             textBox13.Text = "1,2";
+            textBox14.Text = "0,05";
+        }
+
+        private void ColorButton(object sender)
+        {
+            if (but != null)
+                but.BackColor = Color.DarkGoldenrod;
+            but = (Button)sender;
+            but.BackColor = Color.Gold;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ColorButton(sender);
+            
+            textBox1.Text = "-2*x";
+            textBox2.Text = "-2";
+            textBox3.Text = "-4*x";
+            textBox4.Text = "1";
+            textBox5.Text = "0";
+            textBox6.Text = "-1";
+            textBox7.Text = "0";
+            textBox8.Text = "0";
+            textBox9.Text = "1";
+            textBox10.Text = "1";
+            textBox11.Text = "0";
+            textBox12.Text = "0";
+            textBox13.Text = "3,718";
+            textBox14.Text = "0,1";
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -58,9 +90,7 @@ namespace Method_pro
                 foreach (var s in textBoxes)
                 {
                     if (s.Text == "")
-                    {
-                        s.Text = "0";
-                    }
+                        s.Text = "0";                    
                 }
 
                 ParserFunction.addFunction("sin", new SinFunction());
@@ -82,7 +112,7 @@ namespace Method_pro
                 double beta0 = double.Parse(textBox9.Text);
                 double beta1 = double.Parse(textBox11.Text);
 
-                double h = 0.05;
+                double h = double.Parse(textBox14.Text);
                 int N = (int)Math.Round((b - a) / h);
                 string uravnP = textBox1.Text;
                 string uravnQ = textBox2.Text;
@@ -107,8 +137,7 @@ namespace Method_pro
                     }
                     
                     C[0] = (alfa1 - alfa0 * h) / (m[0] * (alfa1 - alfa0 * h) + n[0] * alfa1);
-                    d[0] = (n[0] * A * h) / (alfa1 - alfa0 * h) + Parser.process(x[0], uravnF) * h;
-
+                    d[0] = (n[0] * A * h) / (alfa1 - alfa0 * h) + Parser.process(x[0], uravnF) * Math.Pow(h, 2);
                     for (int i = 1; i < N - 1; i++)
                     {
                         C[i] = 1 / (m[i] - n[i] * C[i - 1]);
@@ -142,18 +171,24 @@ namespace Method_pro
                         y[i] = C[i] * (d[i] - y[i + 1]);
                     y[0] = (A * h - alfa1 * y[1]) / (alfa0 * h - alfa1);
                     
-                }                
+                }   
+                if(comboBox1.Text == "Метод конечных разностей")
+                {
+
+                }
                 dataGridView1.Rows.Clear();
                 for (int i = 0; i < N + 1; i++)
                 {
-                    dataGridView1.Rows.Add(i, m[i], n[i], C[i], d[i], x[i], y[i]);
+                    dataGridView1.Rows.Add(i, x[i], m[i], n[i], C[i], d[i], y[i]);
                 }
 
             }
             catch (Exception exept)
             {
-                MessageBox.Show("Решить не удалось" + ".\n " + exept.Message + "\n " + "Проверьте ввод данных:" + "\n " + "дифференциальное уравнение, a, b, x0, y0, N, eps.");
+                MessageBox.Show("Решить не удалось" + ".\n " + exept.Message + "\n " + "Проверьте ввод данных:" + "\n ");
             }
         }
+
+        
     }
 }
