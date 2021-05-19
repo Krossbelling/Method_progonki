@@ -33,6 +33,8 @@ namespace Method_pro
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -66,7 +68,10 @@ namespace Method_pro
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.ResultChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultChart)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -193,35 +198,41 @@ namespace Method_pro
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(29, 162);
+            this.label1.Location = new System.Drawing.Point(29, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(351, 29);
             this.label1.TabIndex = 3;
-            this.label1.Text = "y``+           y`+             y =              \r\n";
+            this.label1.Text = "y``+           y`+                y =              \r\n";
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(67, 162);
+            this.textBox1.Location = new System.Drawing.Point(67, 163);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(51, 29);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(148, 162);
+            this.textBox2.Location = new System.Drawing.Point(148, 164);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(58, 29);
             this.textBox2.TabIndex = 4;
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(260, 162);
+            this.textBox3.Location = new System.Drawing.Point(260, 164);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(120, 29);
             this.textBox3.TabIndex = 4;
@@ -253,10 +264,10 @@ namespace Method_pro
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(40, 205);
+            this.label3.Location = new System.Drawing.Point(40, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(340, 29);
             this.label3.TabIndex = 3;
@@ -264,6 +275,8 @@ namespace Method_pro
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox4.Location = new System.Drawing.Point(29, 205);
             this.textBox4.Name = "textBox4";
@@ -272,6 +285,8 @@ namespace Method_pro
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox5.Location = new System.Drawing.Point(106, 205);
             this.textBox5.Name = "textBox5";
@@ -280,6 +295,8 @@ namespace Method_pro
             // 
             // textBox6
             // 
+            this.textBox6.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox6.Location = new System.Drawing.Point(172, 205);
             this.textBox6.Name = "textBox6";
@@ -288,6 +305,8 @@ namespace Method_pro
             // 
             // textBox7
             // 
+            this.textBox7.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox7.Location = new System.Drawing.Point(239, 205);
             this.textBox7.Name = "textBox7";
@@ -296,6 +315,8 @@ namespace Method_pro
             // 
             // textBox8
             // 
+            this.textBox8.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox8.Location = new System.Drawing.Point(308, 205);
             this.textBox8.Name = "textBox8";
@@ -315,10 +336,10 @@ namespace Method_pro
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(40, 250);
+            this.label5.Location = new System.Drawing.Point(40, 253);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(340, 29);
             this.label5.TabIndex = 3;
@@ -326,6 +347,8 @@ namespace Method_pro
             // 
             // textBox9
             // 
+            this.textBox9.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox9.Location = new System.Drawing.Point(29, 250);
             this.textBox9.Name = "textBox9";
@@ -334,6 +357,8 @@ namespace Method_pro
             // 
             // textBox10
             // 
+            this.textBox10.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox10.Location = new System.Drawing.Point(106, 250);
             this.textBox10.Name = "textBox10";
@@ -342,6 +367,8 @@ namespace Method_pro
             // 
             // textBox11
             // 
+            this.textBox11.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox11.Location = new System.Drawing.Point(172, 250);
             this.textBox11.Name = "textBox11";
@@ -350,6 +377,8 @@ namespace Method_pro
             // 
             // textBox12
             // 
+            this.textBox12.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox12.Location = new System.Drawing.Point(239, 250);
             this.textBox12.Name = "textBox12";
@@ -358,6 +387,8 @@ namespace Method_pro
             // 
             // textBox13
             // 
+            this.textBox13.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox13.Location = new System.Drawing.Point(308, 250);
             this.textBox13.Name = "textBox13";
@@ -366,6 +397,8 @@ namespace Method_pro
             // 
             // textBox14
             // 
+            this.textBox14.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox14.Location = new System.Drawing.Point(308, 60);
             this.textBox14.Name = "textBox14";
@@ -374,10 +407,10 @@ namespace Method_pro
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(277, 60);
+            this.label6.Location = new System.Drawing.Point(277, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 29);
             this.label6.TabIndex = 3;
@@ -396,12 +429,41 @@ namespace Method_pro
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ResultChart
+            // 
+            this.ResultChart.BackColor = System.Drawing.Color.MediumSeaGreen;
+            chartArea1.Name = "ChartArea1";
+            this.ResultChart.ChartAreas.Add(chartArea1);
+            this.ResultChart.Location = new System.Drawing.Point(29, 376);
+            this.ResultChart.Name = "ResultChart";
+            this.ResultChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.ResultChart.Size = new System.Drawing.Size(901, 413);
+            this.ResultChart.TabIndex = 17;
+            this.ResultChart.Text = "chart1";
+            title1.BackColor = System.Drawing.Color.Transparent;
+            title1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title1.Name = "Title1";
+            this.ResultChart.Titles.Add(title1);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Location = new System.Drawing.Point(29, 291);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(163, 23);
+            this.checkBox1.TabIndex = 18;
+            this.checkBox1.Text = "Совмещать графики";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Purple;
-            this.ClientSize = new System.Drawing.Size(945, 440);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(945, 810);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ResultChart);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox13);
@@ -432,6 +494,7 @@ namespace Method_pro
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Численные методы";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,6 +534,8 @@ namespace Method_pro
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
+        protected internal System.Windows.Forms.DataVisualization.Charting.Chart ResultChart;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
