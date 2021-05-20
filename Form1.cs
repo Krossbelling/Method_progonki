@@ -161,7 +161,7 @@ namespace Method_pro
                     }
                        
                     else if (checkBox1.Checked == false)
-                        OutputOne(N, m, x, n, C, d, y, "Метод прогонки",c2);
+                        OutputOne(N, m, x, n, C, d, y, "Метод прогонки",c2,0);
                 }
                 if (comboBox1.Text == "Метод прогонки с центральной разностью")
                 {
@@ -193,7 +193,7 @@ namespace Method_pro
                     }
 
                     else if (checkBox1.Checked == false)
-                        OutputOne(N, m, x, n, C, d, y, "Метод прогонки с центральной разностью", c2);
+                        OutputOne(N, m, x, n, C, d, y, "Метод прогонки с центральной разностью", c2,1);
 
 
                 }
@@ -277,7 +277,7 @@ namespace Method_pro
             dataGridView1.Rows.Clear();
             //ResultChart.Series.Clear();
             //ResultChart.Legends.Clear();
-            ResultChart.Titles[0].Text = "Методы прогонки";
+            ResultChart.Titles[0].Text = "Численные методы";
             Series series = new Series()
             {               
                 Name = MethodName,
@@ -294,7 +294,7 @@ namespace Method_pro
             ResultChart.Series.Add(series);            
             
         }
-        private void OutputOne(int N, double[] m, double[] x, double[] n, double[] C, double[] d, double[] y, string MethodName, Color color)
+        private void OutputOne(int N, double[] m, double[] x, double[] n, double[] C, double[] d, double[] y, string MethodName, Color color, byte progonki)
         {
 
             dataGridView1.Rows.Clear();
@@ -317,6 +317,12 @@ namespace Method_pro
             ResultChart.Series.Add(series);
             progonkiScentrAll = true;
             progonkiAll = true;
+            if (progonki == 0)
+                progonkiAll = false;
+            if (progonki==1)
+                progonkiScentrAll = false;
+            
+            
         }
     }
 }
